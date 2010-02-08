@@ -1,20 +1,8 @@
-package callee;
-use 5.008003;
-use strict;
-use warnings;
-use Devel::Caller qw(caller_cv);
-use Exporter qw(import);
-our $VERSION = '0.02';
-our @EXPORT = qw(callee);
-sub callee { caller_cv(1) }
-1;
-__END__
-
-=head1 NAME
+# NAME
 
 callee - support recursive anonymous functions
 
-=head1 SYNOPSIS
+# SYNOPSIS
 
     use callee;
 
@@ -26,9 +14,9 @@ callee - support recursive anonymous functions
 
     # $f is 120
 
-=head1 DESCRIPTION
+# DESCRIPTION
 
-This module exports one function, C<callee()>, which allows anonymous
+This module exports one function, `callee()`, which allows anonymous
 functions to refer to themselves. This is necessary for recursive anonymous
 functions. 
 
@@ -36,61 +24,54 @@ A recursive function must be able to refer to itself. Typically, a function
 refers to itself by its name. However, an anonymous function does not have a
 name, and if there is no accessible variable referring to it, i.e. the
 function is not assigned to any variable, the function cannot refer to itself.
-This is where C<callee> comes in.
+This is where `callee` comes in.
 
-This module is just very thin syntactic sugar for L<Devel::Caller>.
+This module is just very thin syntactic sugar for [Devel::Caller](http://search.cpan.org/perldoc?Devel::Caller).
 
-=head1 EXPORTS
+# EXPORTS
 
-=over 4
-
-=item C<callee>
+- `callee`
 
 Returns a coderef to the function within which it is called.
 
-=back
+# SEE ALSO
 
-=head1 SEE ALSO
-
-Takesako-san wrote C<arguments.pm> - see
-L<http://svn.coderepos.org/share/lang/perl/arguments/trunk/> - which does
+Takesako-san wrote `arguments.pm` - see
+<http://svn.coderepos.org/share/lang/perl/arguments/trunk/> - which does
 practically the same thing; see also his blog entry (in Japanese):
-L<http://d.hatena.ne.jp/TAKESAKO/20080501/1209637452>.
+<http://d.hatena.ne.jp/TAKESAKO/20080501/1209637452>.
 
-I released this module because C<arguments.pm> is not on CPAN, and because
+I released this module because `arguments.pm` is not on CPAN, and because
 Devel::Caller already existed on CPAN, but not with the syntax I wanted.
 
-=head1 BUGS AND LIMITATIONS
+# BUGS AND LIMITATIONS
 
 No bugs have been reported.
 
 Please report any bugs or feature requests through the web interface at
-L<http://rt.cpan.org>.
+<http://rt.cpan.org>.
 
-=head1 INSTALLATION
+# INSTALLATION
 
 See perlmodinstall for information and options on installing Perl modules.
 
-=head1 AVAILABILITY
+# AVAILABILITY
 
 The latest version of this module is available from the Comprehensive Perl
-Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
-site near you. Or see L<http://search.cpan.org/dist/callee/>.
+Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a CPAN
+site near you. Or see <http://search.cpan.org/dist/callee/>.
 
-The development version lives at L<http://github.com/hanekomu//>.
+The development version lives at <http://github.com/hanekomu//>.
 Instead of sending patches, please fork this project using the standard git
 and github infrastructure.
 
-=head1 AUTHORS
+# AUTHORS
 
-Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
+Marcel Gr&uuml;nauer, `<marcel@cpan.org>`
 
-=head1 COPYRIGHT AND LICENSE
+# COPYRIGHT AND LICENSE
 
-Copyright 2009-2010 by Marcel GrE<uuml>nauer
+Copyright 2009-2010 by Marcel Gr&uuml;nauer
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
-
-=cut
-

@@ -1,39 +1,69 @@
-This is the Perl distribution callee.
+NAME
+    callee - support recursive anonymous functions
 
-This module exports one function, C<callee()>, which allows anonymous
-functions to refer to themselves. This is necessary for recursive anonymous
-functions. 
+SYNOPSIS
+        use callee;
 
-A recursive function must be able to refer to itself. Typically, a function
-refers to itself by its name. However, an anonymous function does not have a
-name, and if there is no accessible variable referring to it, i.e. the
-function is not assigned to any variable, the function cannot refer to itself.
-This is where callee comes in.
+        my $f = sub {
+            my $x = shift;
+            return 1 if $x <= 1;
+            $x * callee->($x-1);
+        }->(5);
 
-This module is just very thin syntactic sugar for L<Devel::Caller>.
+        # $f is 120
+
+DESCRIPTION
+    This module exports one function, "callee()", which allows anonymous
+    functions to refer to themselves. This is necessary for recursive
+    anonymous functions.
+
+    A recursive function must be able to refer to itself. Typically, a
+    function refers to itself by its name. However, an anonymous function
+    does not have a name, and if there is no accessible variable referring
+    to it, i.e. the function is not assigned to any variable, the function
+    cannot refer to itself. This is where "callee" comes in.
+
+    This module is just very thin syntactic sugar for Devel::Caller.
+
+EXPORTS
+    "callee"
+        Returns a coderef to the function within which it is called.
+
+SEE ALSO
+    Takesako-san wrote "arguments.pm" - see
+    <http://svn.coderepos.org/share/lang/perl/arguments/trunk/> - which does
+    practically the same thing; see also his blog entry (in Japanese):
+    <http://d.hatena.ne.jp/TAKESAKO/20080501/1209637452>.
+
+    I released this module because "arguments.pm" is not on CPAN, and
+    because Devel::Caller already existed on CPAN, but not with the syntax I
+    wanted.
+
+BUGS AND LIMITATIONS
+    No bugs have been reported.
+
+    Please report any bugs or feature requests through the web interface at
+    <http://rt.cpan.org>.
 
 INSTALLATION
+    See perlmodinstall for information and options on installing Perl
+    modules.
 
-callee installation is straightforward. If your CPAN shell is
-set up, you should just be able to do
+AVAILABILITY
+    The latest version of this module is available from the Comprehensive
+    Perl Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a
+    CPAN site near you. Or see <http://search.cpan.org/dist/callee/>.
 
-    % cpan callee
+    The development version lives at <http://github.com/hanekomu//>. Instead
+    of sending patches, please fork this project using the standard git and
+    github infrastructure.
 
-Download it, unpack it, then build it as per the usual:
+AUTHORS
+    Marcel Grünauer, "<marcel@cpan.org>"
 
-    % perl Makefile.PL
-    % make && make test
+COPYRIGHT AND LICENSE
+    Copyright 2009-2010 by Marcel Grünauer
 
-Then install it:
+    This library is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
 
-    % make install
-
-DOCUMENTATION
-
-callee documentation is available as in POD. So you can do:
-
-    % perldoc callee
-
-to read the documentation online with your favorite pager.
-
-Marcel Gruenauer

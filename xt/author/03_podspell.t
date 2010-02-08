@@ -1,69 +1,11 @@
 #!perl -w
-
 use strict;
 use warnings;
-use Test::Spelling;
-use utf8;
-
-add_stopwords(map { split /[\s\:\-]/ } <DATA>);
-$ENV{LANG} = 'C';
+use Test::More;
+eval 'use Pod::Wordlist::hanekomu; 1'
+  or plan skip_all => 'Pod::Wordlist::hanekomu required';
+eval 'use Test::Spelling; 1'
+  or plan skip_all => 'Test::Spelling required';
+plan skip_all => 'skip author tests during AUTOMATED_TESTING'
+  if $ENV{AUTOMATED_TESTING};
 all_pod_files_spelling_ok('lib');
-
-__DATA__
-AOP
-API
-Achim
-Adam
-AspectJ
-CPAN
-Conway
-Coro
-Damian
-DateTime
-Eilam
-Ekker
-Florian
-Grünauer
-Heinz
-Helmberger
-Hofstetter
-MVC
-Marcel
-Mark
-Miyagawa
-OO
-OOP
-PARC
-Ran
-ShipIt
-Takesako
-Tatsuhiko
-W3CDTF
-YAML
-behaviour
-blogs
-callback
-chomps
-configurator
-configurators
-crosscutting
-distname
-github
-init
-op
-pipe's
-placeholders
-pointcut
-pointcuts
-redispatch
-ref
-san
-segment's
-shipit
-tokenizes
-unshifts
-username
-whitelist
-whitelists
-wormhole
-yml
