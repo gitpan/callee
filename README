@@ -1,6 +1,9 @@
 NAME
     callee - support recursive anonymous functions
 
+VERSION
+    version 1.100820
+
 SYNOPSIS
         use callee;
 
@@ -25,9 +28,9 @@ DESCRIPTION
 
     This module is just very thin syntactic sugar for Devel::Caller.
 
-EXPORTS
-    "callee"
-        Returns a coderef to the function within which it is called.
+FUNCTIONS
+  callee
+    Returns a coderef to the function within which it is called.
 
 SEE ALSO
     Takesako-san wrote "arguments.pm" - see
@@ -39,31 +42,31 @@ SEE ALSO
     because Devel::Caller already existed on CPAN, but not with the syntax I
     wanted.
 
-BUGS AND LIMITATIONS
-    No bugs have been reported.
-
-    Please report any bugs or feature requests through the web interface at
-    <http://rt.cpan.org>.
-
 INSTALLATION
     See perlmodinstall for information and options on installing Perl
     modules.
 
+BUGS AND LIMITATIONS
+    No bugs have been reported.
+
+    Please report any bugs or feature requests through the web interface at
+    <http://rt.cpan.org/Public/Dist/Display.html?Name=callee>.
+
 AVAILABILITY
     The latest version of this module is available from the Comprehensive
     Perl Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a
-    CPAN site near you. Or see <http://search.cpan.org/dist/callee/>.
+    CPAN site near you, or see <http://search.cpan.org/dist/callee/>.
 
-    The development version lives at <http://github.com/hanekomu//>. Instead
-    of sending patches, please fork this project using the standard git and
-    github infrastructure.
+    The development version lives at <http://github.com/hanekomu/callee/>.
+    Instead of sending patches, please fork this project using the standard
+    git and github infrastructure.
 
-AUTHORS
-    Marcel Grünauer, "<marcel@cpan.org>"
+AUTHOR
+      Marcel Gruenauer <marcel@cpan.org>
 
 COPYRIGHT AND LICENSE
-    Copyright 2009-2010 by Marcel Grünauer
+    This software is copyright (c) 2009 by Marcel Gruenauer.
 
-    This library is free software; you can redistribute it and/or modify it
-    under the same terms as Perl itself.
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
 

@@ -1,18 +1,27 @@
-package callee;
-use 5.008003;
+use 5.008;
 use strict;
 use warnings;
+
+package callee;
+our $VERSION = '1.100820';
+# ABSTRACT: support recursive anonymous functions
 use Devel::Caller qw(caller_cv);
 use Exporter qw(import);
-our $VERSION = '0.02';
-our @EXPORT = qw(callee);
+our @EXPORT  = qw(callee);
 sub callee { caller_cv(1) }
 1;
+
+
 __END__
+=pod
 
 =head1 NAME
 
 callee - support recursive anonymous functions
+
+=head1 VERSION
+
+version 1.100820
 
 =head1 SYNOPSIS
 
@@ -40,15 +49,11 @@ This is where C<callee> comes in.
 
 This module is just very thin syntactic sugar for L<Devel::Caller>.
 
-=head1 EXPORTS
+=head1 FUNCTIONS
 
-=over 4
-
-=item C<callee>
+=head2 callee
 
 Returns a coderef to the function within which it is called.
-
-=back
 
 =head1 SEE ALSO
 
@@ -60,37 +65,39 @@ L<http://d.hatena.ne.jp/TAKESAKO/20080501/1209637452>.
 I released this module because C<arguments.pm> is not on CPAN, and because
 Devel::Caller already existed on CPAN, but not with the syntax I wanted.
 
+=head1 INSTALLATION
+
+See perlmodinstall for information and options on installing Perl modules.
+
 =head1 BUGS AND LIMITATIONS
 
 No bugs have been reported.
 
 Please report any bugs or feature requests through the web interface at
-L<http://rt.cpan.org>.
-
-=head1 INSTALLATION
-
-See perlmodinstall for information and options on installing Perl modules.
+L<http://rt.cpan.org/Public/Dist/Display.html?Name=callee>.
 
 =head1 AVAILABILITY
 
 The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
-site near you. Or see L<http://search.cpan.org/dist/callee/>.
+site near you, or see
+L<http://search.cpan.org/dist/callee/>.
 
-The development version lives at L<http://github.com/hanekomu//>.
+The development version lives at
+L<http://github.com/hanekomu/callee/>.
 Instead of sending patches, please fork this project using the standard git
 and github infrastructure.
 
-=head1 AUTHORS
+=head1 AUTHOR
 
-Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
+  Marcel Gruenauer <marcel@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2009-2010 by Marcel GrE<uuml>nauer
+This software is copyright (c) 2009 by Marcel Gruenauer.
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
 
